@@ -1,0 +1,1 @@
+mvn sonar:sonar -Dsonar.projectKey=pdApi -Dsonar.host.url=http://192.168.1.82:9000 -Dsonar.login=9ff4b4f9c0f30cbac83381634adb7a2f83c9b7a0
