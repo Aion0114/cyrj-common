@@ -13,9 +13,7 @@ import com.cyrj.common.util.UUIDUtil;
 import com.cyrj.language.mapper.LangBasicsMapper;
 import com.cyrj.language.pojo.LangBasics;
 import org.apache.commons.lang3.StringUtils;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestHighLevelClient;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,8 +31,8 @@ public class BaseController {
 	@Autowired
 	LangBasicsMapper langBasicsMapper;
 
-	@Autowired
-	RestHighLevelClient restHighLevelClient;
+//	@Autowired
+//	RestHighLevelClient restHighLevelClient;
 
 
 	public Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -459,29 +457,29 @@ public class BaseController {
 			this.request = request;
 		}
 
-		@Override
-		public void run() {
-			try {
-				Map<String, Object> jsonMap = new HashMap<>();
-				//增加操作日志
-				jsonMap.put("billId",billId);
-				jsonMap.put("billNo",billNo);
-				jsonMap.put("operateTypeName",operateTypeName);
-				jsonMap.put("concent",concent);
-				jsonMap.put("dbName",getDbName(request));
-				jsonMap.put("creater",getEmployeeName(request));
-				jsonMap.put("createTime",new Date());
-				//jsonMap.put("index","b2_es_mallorderprocessing");
-				jsonMap.put("path",request.getContextPath()+request.getServletPath());
-
-				IndexRequest indexRequest = new IndexRequest("b2_es_mallorderprocessing", "_doc", UUIDUtil.generateUpperGUID())
-						.source(jsonMap);
-				// 获取响应结果
-				restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
-			}catch(Exception e) {
-				System.out.println("elasticsearch插入错误："+e.getMessage());
-			}
-		}
+//		@Override
+//		public void run() {
+//			try {
+//				Map<String, Object> jsonMap = new HashMap<>();
+//				//增加操作日志
+//				jsonMap.put("billId",billId);
+//				jsonMap.put("billNo",billNo);
+//				jsonMap.put("operateTypeName",operateTypeName);
+//				jsonMap.put("concent",concent);
+//				jsonMap.put("dbName",getDbName(request));
+//				jsonMap.put("creater",getEmployeeName(request));
+//				jsonMap.put("createTime",new Date());
+//				//jsonMap.put("index","b2_es_mallorderprocessing");
+//				jsonMap.put("path",request.getContextPath()+request.getServletPath());
+//
+//				IndexRequest indexRequest = new IndexRequest("b2_es_mallorderprocessing", "_doc", UUIDUtil.generateUpperGUID())
+//						.source(jsonMap);
+//				// 获取响应结果
+//				restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
+//			}catch(Exception e) {
+//				System.out.println("elasticsearch插入错误："+e.getMessage());
+//			}
+//		}
 	}
 
 	/**
@@ -492,26 +490,26 @@ public class BaseController {
 	 * @param operateTypeName
 	 * @param request
 	 */
-	public void setDataOperationLog(Integer relationId,String relationType,String concent,String type,String operateTypeName,HttpServletRequest request){
-		Map<String, Object> jsonMap = new HashMap<>();
-		//增加操作日志
-		jsonMap.put("relationId",relationId);
-		jsonMap.put("relationType",relationType);
-		jsonMap.put("concent",concent);
-		jsonMap.put("type",type);
-		jsonMap.put("operateTypeName",operateTypeName);
-		jsonMap.put("dbName",getDbName(request));
-		jsonMap.put("creater",getEmployeeName(request));
-		jsonMap.put("createTime",new Date());
-		jsonMap.put("path",request.getContextPath()+request.getServletPath());
-
-		IndexRequest indexRequest = new IndexRequest("b2_es_data_operation", "_doc", UUIDUtil.generateUpperGUID())
-				.source(jsonMap);
-		// 获取响应结果
-		try {
-			restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	public void setDataOperationLog(Integer relationId,String relationType,String concent,String type,String operateTypeName,HttpServletRequest request){
+//		Map<String, Object> jsonMap = new HashMap<>();
+//		//增加操作日志
+//		jsonMap.put("relationId",relationId);
+//		jsonMap.put("relationType",relationType);
+//		jsonMap.put("concent",concent);
+//		jsonMap.put("type",type);
+//		jsonMap.put("operateTypeName",operateTypeName);
+//		jsonMap.put("dbName",getDbName(request));
+//		jsonMap.put("creater",getEmployeeName(request));
+//		jsonMap.put("createTime",new Date());
+//		jsonMap.put("path",request.getContextPath()+request.getServletPath());
+//
+//		IndexRequest indexRequest = new IndexRequest("b2_es_data_operation", "_doc", UUIDUtil.generateUpperGUID())
+//				.source(jsonMap);
+//		// 获取响应结果
+//		try {
+//			restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 }

@@ -9,8 +9,6 @@ import java.util.*;
 import com.alibaba.fastjson.JSONObject;
 import com.cyrj.common.config.RedisUtil;
 import com.cyrj.common.pojo.BillMultiUnit;
-import org.elasticsearch.search.SearchHit;
-import org.elasticsearch.search.SearchHits;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -206,13 +204,13 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	 * 处理高亮结果
 	 * @date: 2018/12/18 10:48
 	 */
-	private List<Map<String,Object>> getHitList(SearchHits hits){
-		List<Map<String,Object>> list = new ArrayList<>();
-		for(SearchHit searchHit : hits){
-			list.add(searchHit.getSourceAsMap());
-		}
-		return list;
-	}
+//	private List<Map<String,Object>> getHitList(SearchHits hits){
+//		List<Map<String,Object>> list = new ArrayList<>();
+//		for(SearchHit searchHit : hits){
+//			list.add(searchHit.getSourceAsMap());
+//		}
+//		return list;
+//	}
 	
 	@Override
     public Map save(T t) throws UnsupportedEncodingException, NoSuchAlgorithmException{

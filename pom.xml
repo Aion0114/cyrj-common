@@ -19,11 +19,11 @@
 
   <dependencies>
 
-	  <dependency>
-		  <groupId>org.elasticsearch.client</groupId>
-		  <artifactId>elasticsearch-rest-high-level-client</artifactId>
-		  <version>7.5.1</version>
-	  </dependency>
+<!--	  <dependency>-->
+<!--		  <groupId>org.elasticsearch.client</groupId>-->
+<!--		  <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+<!--		  <version>7.5.1</version>-->
+<!--	  </dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -70,15 +70,15 @@
 		</dependency> 
 		
 		<!-- 添加springboot对amqp的支持 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-amqp</artifactId>-->
+<!--        </dependency>-->
 
-	  <dependency>
-		  <groupId>org.springframework.amqp</groupId>
-		  <artifactId>spring-rabbit</artifactId>
-	  </dependency>
+<!--	  <dependency>-->
+<!--		  <groupId>org.springframework.amqp</groupId>-->
+<!--		  <artifactId>spring-rabbit</artifactId>-->
+<!--	  </dependency>-->
 		
 		<dependency> 
 			<groupId>org.apache.commons</groupId> 
